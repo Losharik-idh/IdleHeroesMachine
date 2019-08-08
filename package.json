@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "buildProd": "ng build --prod --base-href=/IdleHeroesMachine/",
+    "push": "npx angular-cli-ghpages --dir=dist/IdleHeroesMachine",
+    "publish": "npm run buildProd && npm run push"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +22,7 @@
     "@angular/platform-browser": "~8.0.0",
     "@angular/platform-browser-dynamic": "~8.0.0",
     "@angular/router": "~8.0.0",
+    "angular-cli-ghpages": "^0.6.0-rc.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

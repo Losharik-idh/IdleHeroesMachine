@@ -1,0 +1,19 @@
+.page-header {
+  padding: 1rem;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.35);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Helper } from '../../utilities/helper';
+import * as Constants from '../../globals/Constants';
+import { MonthlyService } from '../../services/monthly.service';
 
 @Component({
   selector: 'app-monthly',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthlyComponent implements OnInit {
 
-  constructor() { }
+  public monthlyData;
+  private helper = new Helper();
+
+  constructor(private monthlyService: MonthlyService) {
+    this.monthlyData = Constants.MONTHLY_SCROLLS_DATA;
+  }
 
   ngOnInit() {
   }

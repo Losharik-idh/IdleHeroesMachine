@@ -7,6 +7,8 @@ import { MonthlyComponent } from './pages/monthly/monthly.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MonthlyRowComponent } from './components/monthly-row/monthly-row.component';
+import { MonthlyGroupComponent } from './components/monthly-group/monthly-group.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './pages/home/home.component';
     MonthlyComponent,
     PageHeaderComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    MonthlyRowComponent,
+    MonthlyGroupComponent
   ],
   imports: [
     BrowserModule,

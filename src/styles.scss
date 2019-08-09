@@ -1,3 +1,5 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
 html {
   box-sizing: border-box;
 }
@@ -12,5 +14,50 @@ html {
 body {
   margin: 0;
   font-family: 'Open Sans', "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  background-color: black;
+}
+
+a {
+  color: white;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding:6rem 1.5rem 1rem;
+  color: white;
+  max-width: 768px;
+  margin: 0 auto;
+
+  &::after {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: .3;
+  }
+
+  &.summon::after {
+    background-image: url('./assets/summoner-bg.png');
+    opacity: .3;
+  }
+
+  &.about::after {
+    background-image: url('./assets/about-bg.png');
+    opacity: .3;
+  }
+
+  &.monthly::after {
+    background-image: url('./assets/open-book.jpg');
+    opacity: .5;
+    //background-repeat: no-repeat;
+    //background-attachment: fixed;
+  }
 }

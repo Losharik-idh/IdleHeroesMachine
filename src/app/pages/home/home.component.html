@@ -1,14 +1,53 @@
-<div>
-  How many do you have
-  <input type="number" #ownInput>
-</div>
+<div class="page summon">
 
-<div>
-  How many do you need
-  <input type="number" #needInput>
-</div>
+  <div>
+    <div class="input-container">
+      <div class="input-field">
+        <div class="input-field__title">How many scrolls do you have</div>
+        <div class="input-field__input">
+          <input type="number" #ownInput [value]="scrollsOwned" (change)="changeScrollsOwned($event)" (keyup)="changeScrollsOwned($event)">
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-field__title">How many scrolls do you need</div>
+        <div class="input-field__input">
+          <input type="number" #needInput [value]="scrollsNeeded" (change)="changeScrollsNeeded($event)" (keyup)="changeScrollsNeeded($event)">
+        </div>
+      </div>
+      <div class="input-field">
+        <div class="input-field__title">When do you need them</div>
+        <div class="input-field__input">
+          <input matInput [matDatepicker]="picker" [value]="when" placeholder="Choose a date" (dateChange)="changeDate($event)" #whenInput>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div>
-  When
-  <input type="date" #whenInput>
+  <div class="home-split">
+    <div>
+      <div class="results">
+        <app-event-result [event]="customEvent" [totalScrolls]="scrollsOwned"></app-event-result>
+        <app-event-result *ngFor="let event of events" [event]="event" [totalScrolls]="scrollsOwned"></app-event-result>
+      </div>
+    </div>
+    <div class="events-home">
+      <div>
+        days left until custom target: {{daysLeft}} <br><br>
+      </div>
+      <div class="target-events">
+        <div class="event" *ngFor="let event of events">
+          <div class="event-title">{{event.event}}</div>
+          <div class="event-date">
+            Starts in {{calculateDaysLeft(event.date) - event.duration}} and ends in {{calculateDaysLeft(event.date)}} days
+            <br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>

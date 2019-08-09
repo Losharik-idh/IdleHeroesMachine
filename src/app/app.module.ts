@@ -10,6 +10,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { MonthlyRowComponent } from './components/monthly-row/monthly-row.component';
 import { MonthlyGroupComponent } from './components/monthly-group/monthly-group.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatNativeDateModule, MatDatepickerModule} from '@angular/material/';
+import { EventResultComponent } from './components/event-result/event-result.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +22,15 @@ import { MonthlyGroupComponent } from './components/monthly-group/monthly-group.
     AboutComponent,
     HomeComponent,
     MonthlyRowComponent,
-    MonthlyGroupComponent
+    MonthlyGroupComponent,
+    EventResultComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

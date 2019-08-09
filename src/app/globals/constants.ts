@@ -10,6 +10,30 @@ export interface ScrollDataGroup {
   subdata: Array<ScrollData>;
 }
 
+export const TARGET_EVENTS = [
+  {
+    event: 'Christmas 2019',
+    date: '2019-12-26T23:00:00.000Z',
+    neededPerRound: 550,
+    maxRounds: 4,
+    duration: 7,
+  },
+  {
+    event: 'Chinese New Year',
+    date: '2020-02-14T23:00:00.000Z',
+    neededPerRound: 550,
+    maxRounds: 4,
+    duration: 7,
+  },
+  {
+    event: 'Anniversary 2020',
+    date: '2020-06-14T23:00:00.000Z',
+    neededPerRound: 550,
+    maxRounds: 4,
+    duration: 7,
+  },
+];
+
 export const MONTHLY_SCROLLS_DATA: Array<ScrollDataGroup> = [
   {
     title: 'Can you complete Miracle (Non L/D part)?',
@@ -17,7 +41,7 @@ export const MONTHLY_SCROLLS_DATA: Array<ScrollDataGroup> = [
     subdata: [
       {
         handle: 'miracleNonLD',
-        description: 'I can complete them',
+        description: 'Yes, I can complete the event',
         scrolls: 24
       },
 
@@ -163,6 +187,11 @@ export const MONTHLY_SCROLLS_DATA: Array<ScrollDataGroup> = [
     title: 'Do you use scrolls during Heroic Summon events?',
     selectOneOnly: true,
     subdata: [
+      {
+        handle: 'useScrollsDuringHeroicSummonNone',
+        description: 'No',
+        scrolls: 0
+      },
       {
         handle: 'useScrollsDuringHeroicSummon50',
         description: 'Use 50 scrolls',

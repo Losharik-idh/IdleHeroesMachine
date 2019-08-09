@@ -1,0 +1,50 @@
+:host {
+  color: white;
+}
+
+.home-split {
+  display: flex;
+
+   & > div {
+     width: 50%;
+   }
+}
+
+.events-home {
+  text-align: right;
+
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 4rem;
+
+  & > .input-field {
+    width: 33%;
+  }
+
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-field__title {
+
+}
+
+.input-field__input {
+  input {
+    color: white;
+    font-weight: bold;
+    background-color: rgb(43,51,159);
+    border-radius: .3rem;
+    border: 2px solid rgb(125,173,221);
+    padding: .3rem .5rem;
+    text-align: center;
+    width: 10rem;
+    margin-top: .8rem;
+  }
+}

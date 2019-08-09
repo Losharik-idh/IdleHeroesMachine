@@ -29,7 +29,7 @@ export class MonthlyService {
 
   public calculateTotalScrolls() {
     this.total = 0;
-    Object.values(this.montlyData).forEach((amount:number) => {
+    Object.values(this.montlyData).forEach((amount: number) => {
       this.total += amount;
     });
     this.save();

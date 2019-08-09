@@ -1,3 +1,5 @@
-<div class="total">Total scrolls per month: {{monthlyService.total}}</div>
-<app-monthly-group *ngFor="let data of monthlyData" [data]="data"></app-monthly-group>
+<div class="page monthly">
+  <div class="total">Total scrolls per month: {{monthlyService.total}}</div>
+  <app-monthly-group *ngFor="let data of monthlyData" [data]="data"></app-monthly-group>
+</div>
 

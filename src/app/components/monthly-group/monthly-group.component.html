@@ -1,5 +1,5 @@
 <div class="group-header">
   {{ groupData.title }}
 </div>
-<app-monthly-row *ngFor="let data of groupData.subdata" [data]="data"></app-monthly-row>
+<app-monthly-row *ngFor="let data of groupData.subdata" [data]="data" [registerFunction]="setRegister"></app-monthly-row>
 

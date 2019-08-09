@@ -8,7 +8,7 @@ import { MonthlyService } from '../../services/monthly.service';
 })
 export class MonthlyRowComponent implements AfterViewInit {
 
-  private scrollData;
+  public scrollData;
 
   @ViewChild('checkbox', {static: false})
   public checkboxElement: any;

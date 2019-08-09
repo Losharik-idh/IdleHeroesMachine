@@ -13,7 +13,7 @@ export class MonthlyComponent implements OnInit {
   public monthlyData;
   private helper = new Helper();
 
-  constructor(private monthlyService: MonthlyService) {
+  constructor(public monthlyService: MonthlyService) {
     this.monthlyData = Constants.MONTHLY_SCROLLS_DATA;
   }
 

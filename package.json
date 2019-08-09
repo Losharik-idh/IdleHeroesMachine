@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "buildProd": "ng build --prod --base-href=/IdleHeroesMachine/",
-    "push": "npx angular-cli-ghpages --dir=dist/IdleHeroesMachine",
+    "push": "ngh  --dir=dist/IdleHeroesMachine",
+    "pushOld": "npx angular-cli-ghpages --dir=dist/IdleHeroesMachine/",
     "publish": "npm run buildProd && npm run push"
   },
   "private": true,

@@ -1,0 +1,11 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+$theme-color-calendar: #7daddd;
+
+.mat-datepicker-toggle-active {
+  color: $theme-color-calendar !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: $theme-color-calendar !important;
+}

@@ -1,4 +1,6 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "./styles/theme";
+
+$breakpoint: 76.8rem;
 
 html {
   box-sizing: border-box;
@@ -56,8 +58,12 @@ a {
 
   &.monthly::after {
     background-image: url('./assets/open-book.jpg');
-    opacity: .5;
-    //background-repeat: no-repeat;
-    //background-attachment: fixed;
+    opacity: .6;
   }
+}
+
+
+
+.highlight {
+  color: #99ceff;
 }

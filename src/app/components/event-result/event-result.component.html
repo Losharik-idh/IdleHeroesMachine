@@ -1,15 +1,16 @@
-<div>{{ eventData.event }} ({{ daysLeft}} days left)</div>
-<div>Current scrolls per day: {{ currentScollsPerDay }}</div>
-<div *ngIf="eventData.maxRounds > 1">
-  <div>Scrolls per day needed to complete this round: {{neededForNextRoundCompletion}}</div>
-  <div>At the current rate you can complete {{roundsCompletedAtCurrentRate}} rounds</div>
-  <div>Total scroll gained at the end of the event: {{ totalScrollsAtEndOfEvent }}</div>
-</div>
+<div *ngIf="isVisible">
+  <div>{{ eventData.event }} (<span class="highlight">{{ daysLeft}}</span> days left)</div>
+  <div>Current scrolls per day: <span class="highlight">{{ currentScollsPerDay }}</span></div>
+  <div *ngIf="eventData.maxRounds > 1">
+    <div>Scrolls per day needed to complete this round: <span class="highlight">{{neededForNextRoundCompletion}}</span></div>
+    <div>At the current rate you can complete <span class="highlight">{{roundsCompletedAtCurrentRate}}</span> rounds</div>
+    <div>Total scrolls gained at the end of the event: <span class="highlight">{{ totalScrollsAtEndOfEvent }}</span></div>
+  </div>
 
-<div *ngIf="eventData.maxRounds == 1">
-  <div>Scrolls per day needed to complete target: {{neededForNextRoundCompletion}}</div>
-  <div *ngIf="roundsCompletedAtCurrentRate === 0">You will be unable to complete your target</div>
-  <div *ngIf="roundsCompletedAtCurrentRate !== 0">At the current rate you can complete your target</div>
-  <div>Total scroll on your target date: {{ totalScrollsAtEndOfEvent }}</div>
+  <div *ngIf="eventData.maxRounds == 1">
+    <div>Scrolls per day needed to complete target: <span class="highlight">{{neededForNextRoundCompletion}}</span></div>
+    <div *ngIf="roundsCompletedAtCurrentRate === 0">You will be unable to complete your target</div>
+    <div *ngIf="roundsCompletedAtCurrentRate !== 0">At the current rate you can complete your target</div>
+    <div>Total scroll on your target date: <span class="highlight">{{ totalScrollsAtEndOfEvent }}</span></div>
+  </div>
 </div>
-<br>

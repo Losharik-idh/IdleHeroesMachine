@@ -25,16 +25,31 @@ export class EventResultComponent implements OnInit {
   public totalScrollsAtEndOfEvent = 0;
   // ------
 
+  public eventPassed = false;
+
+  public isVisible = true;
+
   @Input()
   set event(data) {
     this.eventData = data;
     this.daysLeft = Math.floor(( Date.parse(this.eventData.date) - Date.parse(new Date().toDateString()) ) / 86400000);
+    if (this.daysLeft < 0) {
+      this.daysLeft = 0;
+      this.eventPassed = true;
+    } else {
+      this.eventPassed = false;
+    }
   }
 
   @Input()
   set totalScrolls(total) {
     this.scrollsAquired = Number(total);
     this.calculate();
+  }
+
+  @Input()
+  set activeEvent(eventName) {
+    this.isVisible = (eventName === this.eventData.event);
   }
 
 
@@ -59,6 +74,10 @@ export class EventResultComponent implements OnInit {
     } else {
       const scrollMinusRounds = this.eventData.neededPerRound - (this.scrollsAquired % this.eventData.neededPerRound);
       this.neededForNextRoundCompletion = this.roundDec(scrollMinusRounds / this.daysLeft, 1);
+
+      if (!isFinite(this.neededForNextRoundCompletion)) {
+        this.neededForNextRoundCompletion = scrollMinusRounds;
+      }
     }
 
     this.totalScrollsAtEndOfEvent = Math.floor((this.currentScollsPerDay * this.daysLeft) + this.scrollsAquired);

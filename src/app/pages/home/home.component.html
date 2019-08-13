@@ -26,26 +26,36 @@
   </div>
 
   <div class="home-split">
-    <div>
+    <div class="left">
+      <select #selectedEvent (change)="showEventData($event)">
+        <option value="{{ this.customEvent.event }}">{{this.customEvent.event}}</option>
+        <option  *ngFor="let event of events" value="{{ event.event }}">{{event.event}}</option>
+      </select>
       <div class="results">
-        <app-event-result [event]="customEvent" [totalScrolls]="scrollsOwned"></app-event-result>
-        <app-event-result *ngFor="let event of events" [event]="event" [totalScrolls]="scrollsOwned"></app-event-result>
+<!--        <span class="result-title">Show event results of</span>-->
+
+        <app-event-result [event]="customEvent" [totalScrolls]="scrollsOwned" [activeEvent]="showEvent"></app-event-result>
+        <app-event-result *ngFor="let event of events" [event]="event" [totalScrolls]="scrollsOwned" [activeEvent]="showEvent"></app-event-result>
       </div>
     </div>
-    <div class="events-home">
-      <div>
-        days left until custom target: {{daysLeft}} <br><br>
-      </div>
-      <div class="target-events">
-        <div class="event" *ngFor="let event of events">
-          <div class="event-title">{{event.event}}</div>
-          <div class="event-date">
-            Starts in {{calculateDaysLeft(event.date) - event.duration}} and ends in {{calculateDaysLeft(event.date)}} days
-            <br><br>
+    <div class="right">
+      <div class="events-home-title">Days until events</div>
+      <div class="events-home">
+        <div>
+          days left until custom target: {{daysLeft}} <br><br>
+        </div>
+        <div class="target-events">
+          <div class="event" *ngFor="let event of events">
+            <div class="event-title">{{event.event}}</div>
+            <div class="event-date">
+              Starts in {{calculateDaysLeft(event.date) - event.duration}} and ends in {{calculateDaysLeft(event.date)}} days
+              <br><br>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
 

@@ -23,12 +23,16 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('whenInput', {static: false})
   public whenInput: any;
 
+  @ViewChild('selectedEvent', {static: false})
+  public selectedEvent: any;
+
   @ViewChild(MatDatepicker, {static: false}) datepicker: MatDatepicker<Date>;
 
   public when = new Date().toISOString();
   public scrollsOwned = 0;
   public scrollsNeeded = 0;
   public daysLeft = 0;
+  public showEvent = 'Custom target';
 
   public customEvent = {
     event: 'Custom target',
@@ -88,6 +92,7 @@ export class HomeComponent implements AfterViewInit {
       date: this.when,
       scrollsOwned: this.scrollsOwned,
       scrollsNeeded: this.scrollsNeeded,
+      showEvent: this.showEvent,
     };
     localStorage.setItem(this.saveName, JSON.stringify(save));
   }
@@ -104,9 +109,18 @@ export class HomeComponent implements AfterViewInit {
       if (save.scrollsNeeded) {
         this.scrollsNeeded = save.scrollsNeeded;
       }
+      if (save.showEvent) {
+        this.showEvent = save.showEvent;
+        this.selectedEvent.nativeElement.value = save.showEvent;
+      }
     }
 
     this.calculate();
+  }
+
+  public showEventData(event) {
+    this.showEvent = event.target.value;
+    this.save();
   }
 
 }

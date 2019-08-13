@@ -48,16 +48,16 @@ export class MonthlyRowComponent implements AfterViewInit {
         if (this.selectInGroup) {
           this.selectInGroup(this.handle);
         }
-        this.monthlyService.changeMonthlyData(this.scrollData.handle, this.scrollData.scrolls);
+        this.monthlyService.changeMonthlyData(this.scrollData);
       } else {
-        this.monthlyService.removeMonthlyData(this.scrollData.handle);
+        this.monthlyService.removeMonthlyData(this.scrollData);
       }
     }, 50);
   }
 
   public deselect = () => {
     this.checkboxElement.nativeElement.checked = false;
-    this.monthlyService.removeMonthlyData(this.scrollData.handle);
+    this.monthlyService.removeMonthlyData(this.scrollData);
   }
 
 }

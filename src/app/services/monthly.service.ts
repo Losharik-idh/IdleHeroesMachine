@@ -9,17 +9,27 @@ export class MonthlyService {
   public total = 0;
   private saveName = 'IHM_Monthly';
 
+  public montlyDataOrbs;
+  public totalOrbs = 0;
+  private saveNameOrbs = 'IHM_Monthly_Orbs';
+
   constructor() {
     this.load();
   }
 
-  public changeMonthlyData(handle, scrolls) {
+  public changeMonthlyData(data) {
+    const handle = data.handle;
+    const scrolls = data.scrolls;
+    const orbs = data.orbs;
     this.montlyData[handle] = scrolls;
+    this.montlyDataOrbs[handle] = orbs;
     this.calculateTotalScrolls();
   }
 
-  public removeMonthlyData(handle) {
+  public removeMonthlyData(data) {
+    const handle = data.handle;
     delete this.montlyData[handle];
+    delete this.montlyDataOrbs[handle];
     this.calculateTotalScrolls();
   }
 
@@ -37,12 +47,17 @@ export class MonthlyService {
 
   public save() {
     localStorage.setItem(this.saveName, JSON.stringify(this.montlyData));
+    localStorage.setItem(this.saveNameOrbs, JSON.stringify(this.montlyDataOrbs));
   }
 
   public load() {
     this.montlyData = JSON.parse(localStorage.getItem(this.saveName));
     if (!this.montlyData) {
       this.montlyData = {};
+    }
+    this.montlyDataOrbs = JSON.parse(localStorage.getItem(this.saveNameOrbs));
+    if (!this.montlyDataOrbs) {
+      this.montlyDataOrbs = {};
     }
     this.calculateTotalScrolls();
   }

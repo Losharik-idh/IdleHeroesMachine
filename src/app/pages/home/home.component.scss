@@ -1,18 +1,74 @@
 :host {
   color: white;
+  text-shadow: 0 0 .2rem #000;
+}
+
+$breakpoint: 600px;
+
+.results {
+  border: .2rem solid rgba(white, 50%);
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+
+  margin-bottom: 2rem;
 }
 
 .home-split {
   display: flex;
 
    & > div {
-     width: 50%;
+     //width: 50%;
+
+     width: calc(50% - 1rem);
    }
+
+  .left {
+    margin-right: 1rem;
+    @media screen and (max-width: $breakpoint) {
+      margin-right: 0;
+    }
+  }
+
+  .right {
+    margin-left: 1rem;
+    @media screen and (max-width: $breakpoint) {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint) {
+    flex-direction: column;
+
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+.events-home-title {
+  font-size: 1.6rem;
+  height: 4.5rem;
+  text-align: right;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media screen and (max-width: $breakpoint) {
+    margin-top: 1rem;
+    height: 4.5rem;
+    text-align: left;
+  }
 }
 
 .events-home {
   text-align: right;
 
+  border: .2rem solid rgba(white, 50%);
+  border-radius: 1rem;
+  padding: .5rem 1rem;
+
+  @media screen and (max-width: $breakpoint) {
+    text-align: left;
+  }
 }
 
 .input-container {
@@ -23,16 +79,39 @@
     width: 33%;
   }
 
+  @media screen and (max-width: $breakpoint) {
+    flex-direction: column;
+
+    & > .input-field {
+      width: 100%;
+    }
+  }
+
 }
 
 .input-field {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .input-field__title {
+  text-align: center;
+  padding: 0 .5rem;
+  height: 2.5em;
 
+  @media screen and (max-width: $breakpoint) {
+    height: auto;
+  }
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .input-field__input {
@@ -47,4 +126,42 @@
     width: 10rem;
     margin-top: .8rem;
   }
+}
+
+.result-title {
+  font-size: 1.6rem;
+}
+
+select {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  font-family: 'Open Sans', "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 1.6rem;
+  color: white;
+
+  border-color: transparent;
+  background-color: transparent;
+
+  cursor: pointer;
+
+  height: 3rem;
+
+  padding-left: .5rem;
+
+  &:hover {
+    background-color: rgba(white, 20%);
+    border-radius: .3rem;
+  }
+
+
+  option {
+    padding: .2rem;
+    margin: 0;
+    color: black;
+  }
+}
+
+.mat-datepicker-toggle {
+  position:  absolute;
 }

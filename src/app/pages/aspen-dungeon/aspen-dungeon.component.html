@@ -2,7 +2,7 @@
   <div class="container">
     <div class="input-container">
       <div class="available-row"><span class="result-each-month">What is your current floor in the Aspen Dungeon </span></div>
-      <input type="number" [value]="floorsCompleted" (change)="setFloor($event)" (keyup)="setFloor($event)">
+      <input type="number" [value]="monthly.floorsCompleted" (change)="setFloor($event)" (keyup)="setFloor($event)">
       <br>
       <br>
       <div class="difficulty-list">
@@ -23,14 +23,14 @@
           <div class="available-row_oldlady"><img src="/assets/oldlady.png" alt=""></div>
         </div>
         <div class="available-row">
-          <div class="available-row_medior">{{baronessScrolls}}</div>
+          <div class="available-row_medior">{{monthly.baronessScrolls}}</div>
           <div class="available-row_icon"><img src="/assets/scroll.png" alt=""></div>
-          <div class="available-row_senior">{{oldLadyScrolls}}</div>
+          <div class="available-row_senior">{{monthly.oldLadyScrolls}}</div>
         </div>
         <div class="available-row">
-          <div class="available-row_medior">{{baronessOrbs}}</div>
+          <div class="available-row_medior">{{monthly.baronessOrbs}}</div>
           <div class="available-row_icon"><img src="/assets/orb.png" alt=""></div>
-          <div class="available-row_senior">{{oldLadyOrbs}}</div>
+          <div class="available-row_senior">{{monthly.oldLadyOrbs}}</div>
         </div>
       </div>
     </div>

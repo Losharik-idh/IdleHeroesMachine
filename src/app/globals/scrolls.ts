@@ -94,13 +94,13 @@ export const MONTHLY_SCROLLS_DATA: Array<ScrollDataGroup> = [
     subdata: [
       {
         dynamicIncome: true,
-        handle: 'fromAsperDungeonWhenMediorHasScroll',
+        handle: 'fromAspenDungeonWhenMediorHasScroll',
         description: 'Whenever Baroness has scrolls',
         scrolls: 0
       },
       {
         dynamicIncome: true,
-        handle: 'fromAsperDungeonWhenSeniosHasScroll',
+        handle: 'fromAspenDungeonWhenSeniorHasScroll',
         description: 'Whenever Old Lady has scrolls',
         scrolls: 0
       },

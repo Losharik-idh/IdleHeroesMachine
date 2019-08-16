@@ -1,4 +1,8 @@
 <div class="row-container">
   <input #checkbox id="box-{{handle}}" type="{{type}}" (change)="onChange($event)" [checked]="isSelected()">
-  <label for="box-{{handle}}">{{scrollData.description}} <small> (<span *ngIf="scrollData.scrolls >= 0">+</span>{{scrollData.scrolls}})</small></label>
+  <label for="box-{{handle}}">
+    {{scrollData.description}}
+    <small *ngIf="scrollData.scrolls">(<span *ngIf="scrollData.scrolls >= 0">+</span>{{scrollData.scrolls}})</small>
+    <small *ngIf="scrollData.orbs">(<span *ngIf="scrollData.orbs >= 0">+</span>{{scrollData.orbs}})</small>
+  </label>
 </div>

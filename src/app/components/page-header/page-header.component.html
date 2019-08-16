@@ -1,9 +1,21 @@
 <div class="page-header">
-  <nav>
-    <ul>
-      <li><a href="" routerLinkActive="active">Home</a></li>
-      <li><a href="./monthly" routerLinkActive="active">Monthly scrolls</a></li>
-      <li><a href="./about" routerLinkActive="active">About</a></li>
-    </ul>
-  </nav>
+  Idle Heroes Machine
+  <div class="menu-button">
+    <div class="hamburger hamburger--slider" (click)="toggleMenu()" #hamburger>
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+  </div>
 </div>
+<nav [class.active]="isMenuActive">
+  <ul>
+    <li><a [routerLink]="['']" routerLinkActive="active" (click)="toggleMenu()">Home</a></li>
+    <li><a [routerLink]="['./monthly']" routerLinkActive="active" (click)="toggleMenu()">Monthly scrolls</a></li>
+    <!--      <li><a href="./monthly-orbs" routerLinkActive="active">Monthly orbs</a></li>-->
+    <li><a [routerLink]="['./aspen']" routerLinkActive="active" (click)="toggleMenu()">Aspen Dungeon</a></li>
+    <li><a [routerLink]="['./ld-shards']" routerLinkActive="active" (click)="toggleMenu()">LD Shards</a></li>
+    <li><a [routerLink]="['./about']" routerLinkActive="active" (click)="toggleMenu()">About</a></li>
+  </ul>
+</nav>
+<div class="backdrop" [class.backdropActive]="isMenuActive" (click)="toggleMenu()"></div>

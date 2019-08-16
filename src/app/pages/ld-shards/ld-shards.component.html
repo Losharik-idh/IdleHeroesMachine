@@ -1,0 +1,27 @@
+<div class="page ld-shards">
+  <div class="ld-shards-row">
+    <div class="light">
+      <div class="faction-icon-container"><img src="assets/light-icon.png" class="faction-icon" alt="light icon"></div>
+      <div>Amount of light 4★ shards <input value="{{ldData[LIGHT].S4}}" type="number" (change)="onChange4StarShards($event, LIGHT)" (keyup)="onChange4StarShards($event, LIGHT)"></div>
+      <div>Amount of light 4★ heroes <input value="{{ldData[LIGHT].H4}}" type="number" (change)="onChange4StarHeroes($event, LIGHT)" (keyup)="onChange4StarHeroes($event, LIGHT)"></div>
+      <div>Amount of light 5★ heroes <input value="{{ldData[LIGHT].H5}}" type="number" (change)="onChange5StarHeroes($event, LIGHT)" (keyup)="onChange5StarHeroes($event, LIGHT)"></div>
+      <div>Total of light 5★ heroes <span class="highlight">{{ldData[LIGHT].TOTAL}}</span></div>
+      <div>You will need <span class="highlight">{{ldData[LIGHT].NEEDED3STAR}}</span> 3★ Holy kids to fuse </div>
+      <br>
+      <div><span class="highlight">{{getPercentage(LIGHT)}}%</span> to complete 10★</div>
+    </div>
+    <div class="center">
+      <div class="disclaimer">Excluding 5★ desired hero copies and 9★ food</div>
+    </div>
+    <div class="dark">
+      <div class="faction-icon-container"><img src="assets/dark-icon.png" class="faction-icon" alt="dark icon"></div>
+      <div>Amount of dark 4* shards <input value="{{ldData[DARK].S4}}" type="number" (change)="onChange4StarShards($event, DARK)" (keyup)="onChange4StarShards($event, DARK)"></div>
+      <div>Amount of dark 4* heroes <input value="{{ldData[DARK].H4}}" type="number" (change)="onChange4StarHeroes($event, DARK)" (keyup)="onChange4StarHeroes($event, DARK)"></div>
+      <div>Amount of dark 5* heroes <input value="{{ldData[DARK].H5}}" type="number" (change)="onChange5StarHeroes($event, DARK)" (keyup)="onChange5StarHeroes($event, DARK)"></div>
+      <div>Total of dark 5* heroes <span class="highlight">{{ldData[DARK].TOTAL}}</span></div>
+      <div>You will need <span class="highlight">{{ldData[DARK].NEEDED3STAR}}</span> 3★ Ghosts of aspen to fuse</div>
+      <br>
+      <div><span class="highlight">{{getPercentage(DARK)}}%</span> to complete 10★</div>
+    </div>
+  </div>
+</div>

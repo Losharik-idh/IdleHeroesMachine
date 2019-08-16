@@ -1,0 +1,88 @@
+$breakpoint: 600px;
+
+input {
+  color: white;
+  font-weight: bold;
+  background-color: #562c19;
+  border-radius: 0.3rem;
+  border: 2px solid #e3d0ac;
+  padding: 0.3rem 0.5rem;
+  text-align: center;
+  width: 10rem;
+  //margin-top: 0.8rem;
+}
+
+.container {
+  padding-top: 15rem;
+  display: flex;
+  @media screen and (max-width: $breakpoint) {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+
+.input-container {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.output-container {
+  padding-left: 10rem;
+  @media screen and (max-width: $breakpoint) {
+    padding: 0;
+  }
+}
+
+.available {
+
+}
+
+.available-row {
+  display: flex;
+  justify-content: center;
+}
+
+.available-row_senior ,
+.available-row_medior {
+  width: 10rem;
+  text-align: center;
+}
+
+.available-row_medior {
+
+}
+
+.available-row_senior {
+
+}
+
+.available-row_icon {
+  width: 5rem;
+  text-align: center;
+
+  img {
+    height: 3rem;
+  }
+}
+
+
+
+.available-row_baroness,
+.available-row_oldlady {
+  img {
+    width: 10rem;
+  }
+}
+
+.available-row_baroness {
+  margin-right: 2.5rem;
+}
+
+.available-row_oldlady {
+  margin-left: 2.5rem;
+}
+
+.result-each-month {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}

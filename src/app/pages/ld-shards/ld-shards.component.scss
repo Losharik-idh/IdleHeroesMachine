@@ -1,0 +1,104 @@
+$ld-color: #ffce69;
+$ld-color-highlight: white;
+$breakpoint: 600px;
+
+.ld-shards-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: $breakpoint) {
+    flex-direction: column;
+  }
+}
+
+span.highlight {
+  color: $ld-color-highlight;
+}
+
+.center {
+  width: 33%;
+  background-image: url("/assets/portal-light-dark.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: flex-end;
+
+  @media screen and (max-width: $breakpoint) {
+    order: 1;
+    min-height: 130px;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+}
+
+.light,
+.dark {
+  width: 33%;
+  color: $ld-color;
+
+  @media screen and (max-width: $breakpoint) {
+    order: 2;
+    width: 100%;
+  }
+}
+
+.light {
+  @media screen and (max-width: $breakpoint) {
+    margin-bottom: 3rem;
+  }
+}
+
+.dark {
+  text-align: right;
+  @media screen and (max-width: $breakpoint) {
+    text-align: left;
+  }
+}
+
+.disclaimer {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+$inputColor: skyblue;
+
+input {
+  width: 100%;
+  max-width: 100%;
+  color: white;
+  background-color: rgba(white, 10%);
+  padding: .4rem .5rem;
+  border: none;
+  border-bottom: 2px solid rgba($ld-color, 70%);
+
+  .dark & {
+    text-align: right;
+    @media screen and (max-width: $breakpoint) {
+      text-align: left;
+    }
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.faction-icon {
+  width: 3rem;
+}
+
+.faction-icon-container {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media screen and (max-width: $breakpoint) {
+    margin-bottom: .5rem;
+  }
+}

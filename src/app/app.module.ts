@@ -13,6 +13,9 @@ import { MonthlyGroupComponent } from './components/monthly-group/monthly-group.
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatNativeDateModule, MatDatepickerModule} from '@angular/material/';
 import { EventResultComponent } from './components/event-result/event-result.component';
+import { MonthlyOrbsComponent } from './pages/monthly-orbs/monthly-orbs.component';
+import { AspenDungeonComponent } from './pages/aspen-dungeon/aspen-dungeon.component';
+import { LdShardsComponent } from './pages/ld-shards/ld-shards.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { EventResultComponent } from './components/event-result/event-result.com
     HomeComponent,
     MonthlyRowComponent,
     MonthlyGroupComponent,
-    EventResultComponent
+    EventResultComponent,
+    MonthlyOrbsComponent,
+    AspenDungeonComponent,
+    LdShardsComponent
   ],
   imports: [
     BrowserModule,

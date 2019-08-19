@@ -22,6 +22,7 @@ export class EventResultComponent implements OnInit {
 
   public neededForNextRoundCompletion = 0;
   public roundsCompletedAtCurrentRate: any = 0;
+  public neededPerDayForFullCompletion: any = 0;
   public totalScrollsAtEndOfEvent = 0;
   // ------
 
@@ -79,6 +80,10 @@ export class EventResultComponent implements OnInit {
         this.neededForNextRoundCompletion = scrollMinusRounds;
       }
     }
+
+    const stillNeededForFullCompletion = (this.eventData.neededPerRound * this.eventData.maxRounds) - this.scrollsAquired;
+
+    this.neededPerDayForFullCompletion = this.roundDec(stillNeededForFullCompletion / this.daysLeft, 1);
 
     this.totalScrollsAtEndOfEvent = Math.floor((this.currentScollsPerDay * this.daysLeft) + this.scrollsAquired);
 

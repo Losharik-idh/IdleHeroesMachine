@@ -57,7 +57,7 @@ export class MonthlyService {
   }
 
   public getIfSelected(handle) {
-    return this.montlyData[handle] !== undefined;
+    return this.montlyData[handle] !== undefined || this.montlyDataOrbs[handle] !== undefined;
   }
 
   public calculateAll() {
@@ -86,9 +86,25 @@ export class MonthlyService {
   }
 
   public calculateTotalOrbs() {
+    // aspenDungeonBaroness-Orb
     this.totalOrbs = 0;
-    Object.values(this.montlyDataOrbs).forEach((amount: number) => {
+    // Object.values(this.montlyDataOrbs).forEach((amount: number) => {
+    //   this.totalOrbs += amount;
+    // });
+    Object.entries(this.montlyDataOrbs).forEach((data: any) => {
+      const handle = data[0];
+      const amount = Number(data[1]);
       this.totalOrbs += amount;
+
+      if (this.handlesWithDynamicIncome.has(handle)) {
+        this.totalOrbs -= amount;
+        if (handle === 'aspenDungeonBaroness-Orb') {
+          this.totalOrbs += this.baronessOrbs;
+        }
+        if (handle === 'aspenDungeonOldLady-Orb') {
+          this.totalOrbs += this.oldLadyOrbs;
+        }
+      }
     });
   }
 
@@ -136,7 +152,15 @@ export class MonthlyService {
 
   private generateDynalicValueSet() {
     const dataGroup = Constants.MONTHLY_SCROLLS_DATA;
+    const dataGroupOrbs = Constants.MONTHLY_ORBS_DATA;
     Object.values(dataGroup).forEach((groupData: ScrollDataGroup) => {
+      groupData.subdata.forEach((data) => {
+        if (data.hasOwnProperty('dynamicIncome') && data.dynamicIncome) {
+          this.handlesWithDynamicIncome.add(data.handle);
+        }
+      });
+    });
+    Object.values(dataGroupOrbs).forEach((groupData: ScrollDataGroup) => {
       groupData.subdata.forEach((data) => {
         if (data.hasOwnProperty('dynamicIncome') && data.dynamicIncome) {
           this.handlesWithDynamicIncome.add(data.handle);

@@ -8,7 +8,7 @@ import { MonthlyService } from '../../services/monthly.service';
 })
 export class AspenDungeonComponent implements AfterViewInit {
 
-  constructor(private monthly: MonthlyService) { }
+  constructor(public monthly: MonthlyService) { }
 
   ngAfterViewInit() {}
 

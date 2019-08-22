@@ -26,6 +26,8 @@ export class EventResultComponent implements OnInit {
   public totalScrollsAtEndOfEvent = 0;
   // ------
 
+  public canFullyComplete = false;
+
   public eventPassed = false;
 
   public isVisible = true;
@@ -60,6 +62,7 @@ export class EventResultComponent implements OnInit {
   }
 
   public calculate = () => {
+    this.canFullyComplete = false;
     this.currentScollsPerDay = this.roundDec(this.monthlyService.total / 30, 1);
     const totalScrollsAtEventDate = (this.currentScollsPerDay * this.daysLeft) + this.scrollsAquired;
 
@@ -81,7 +84,12 @@ export class EventResultComponent implements OnInit {
       }
     }
 
-    const stillNeededForFullCompletion = (this.eventData.neededPerRound * this.eventData.maxRounds) - this.scrollsAquired;
+    let stillNeededForFullCompletion = (this.eventData.neededPerRound * this.eventData.maxRounds) - this.scrollsAquired;
+
+    if (stillNeededForFullCompletion < 0) {
+      stillNeededForFullCompletion = 0;
+      this.canFullyComplete = true;
+    }
 
     this.neededPerDayForFullCompletion = this.roundDec(stillNeededForFullCompletion / this.daysLeft, 1);
 

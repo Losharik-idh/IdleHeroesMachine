@@ -52,6 +52,28 @@ export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = [
         description: '300',
         orbs: 8
       },
+      // 2nd round
+
+      {
+        handle: 'wishingFountain50-2-Orb',
+        description: '2 rounds + 50',
+        orbs: 10
+      },
+      {
+        handle: 'wishingFountain100-2-Orb',
+        description: '2 rounds + 100',
+        orbs: 12
+      },
+      {
+        handle: 'wishingFountain200-2-Orb',
+        description: '2 rounds + 200',
+        orbs: 14
+      },
+      {
+        handle: 'wishingFountain300-2-Orb',
+        description: '2 rounds + 300',
+        orbs: 16
+      },
     ]
   },
   {
@@ -66,12 +88,12 @@ export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = [
       {
         handle: 'heroicScrollEvent50-Orb',
         description: '50',
-        orbs: 2
+        orbs: 3
       },
       {
         handle: 'heroicScrollEvent100-Orb',
         description: '100',
-        orbs: 4
+        orbs: 6
       },
       {
         handle: 'heroicScrollEvent200-Orb',
@@ -81,7 +103,7 @@ export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = [
       {
         handle: 'heroicScrollEvent300-Orb',
         description: '300',
-        orbs: 13
+        orbs: 15
       },
     ]
   },
@@ -122,7 +144,7 @@ export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = [
     subdata: [
       {
         handle: 'scrollsDropEvent-Orb',
-        description: 'I take Scrolls from Drop event',
+        description: 'I don\'t take orbs from Drop event',
         orbs: 0
       },
       {
@@ -224,6 +246,23 @@ export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = [
       {
         handle: 'freeTeamUpArena21to3000-Orb',
         description: 'Top 21-3000',
+        orbs: 0,
+      },
+    ]
+  },
+  {
+    title: 'Do you buys orbs from Arena Tokens (Arena tokens are calculated below)',
+    selectOneOnly: true,
+    subdata: [
+      {
+        dynamicIncome: true,
+        handle: 'orbsFromArenaTokensYes-Orb',
+        description: 'Yes',
+        orbs: 0,
+      },
+      {
+        handle: 'orbsFromArenaTokensNo-Orb',
+        description: 'No',
         orbs: 0,
       },
     ]

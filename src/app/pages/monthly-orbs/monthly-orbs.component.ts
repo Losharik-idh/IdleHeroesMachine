@@ -11,10 +11,12 @@ import { MonthlyService } from '../../services/monthly.service';
 export class MonthlyOrbsComponent implements OnInit {
 
   public monthlyData;
+  public arenaTokensData;
   private helper = new Helper();
 
   constructor(public monthlyService: MonthlyService) {
     this.monthlyData = Constants.MONTHLY_ORBS_DATA;
+    this.arenaTokensData = Constants.MONTHLY_ARENA_TOKENS_DATA;
   }
 
   ngOnInit() {

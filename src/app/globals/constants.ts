@@ -1,5 +1,6 @@
 import * as Scrolls from './scrolls';
 import * as Orbs from './orbs';
+import * as ArenaTokens from './arenaTokens';
 import { ScrollDataGroup } from './interfaces';
 
 export const TARGET_EVENTS = [
@@ -28,3 +29,4 @@ export const TARGET_EVENTS = [
 
 export const MONTHLY_SCROLLS_DATA: Array<ScrollDataGroup> = Scrolls.MONTHLY_SCROLLS_DATA;
 export const MONTHLY_ORBS_DATA: Array<ScrollDataGroup> = Orbs.MONTHLY_ORBS_DATA;
+export const MONTHLY_ARENA_TOKENS_DATA: Array<ScrollDataGroup> = ArenaTokens.MONTHLY_ARENA_TOKENS_DATA;

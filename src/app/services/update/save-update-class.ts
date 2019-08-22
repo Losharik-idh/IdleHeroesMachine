@@ -1,5 +1,6 @@
 import * as Scrolls from '../../globals/scrolls';
 import * as Orbs from '../../globals/orbs';
+import * as ArenaTokens from '../../globals/arenaTokens';
 import { ScrollDataGroup } from '../../globals/interfaces';
 
 export class SaveUpdateClass {
@@ -12,10 +13,13 @@ export class SaveUpdateClass {
     return this.updateSaveData(save, Orbs.MONTHLY_ORBS_DATA, 'orbs');
   }
 
+  public updateArenaTokenSaveData(save) {
+    return this.updateSaveData(save, ArenaTokens.MONTHLY_ARENA_TOKENS_DATA, 'arenaTokens');
+  }
+
   public updateSaveData(save, dataGroup, amountKey) {
     const HANDLE_LIST = new Set();
     const SAVEDATA = [];
-
     // Create list of current save keys
     Object.values(dataGroup).forEach((groupData: ScrollDataGroup) => {
       groupData.subdata.forEach((data) => {

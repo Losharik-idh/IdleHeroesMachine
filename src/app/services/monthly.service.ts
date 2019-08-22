@@ -16,6 +16,10 @@ export class MonthlyService {
   public totalOrbs = 0;
   private saveNameOrbs = 'IHM_Monthly_Orbs';
 
+  public montlyDataArenaTokens;
+  public totalArenaTokens = 0;
+  private saveNameArenaTokens = 'IHM_Monthly_ArenaTokens';
+
   private handlesWithDynamicIncome = new Set();
 
   private updateSave = new SaveUpdateClass();
@@ -40,10 +44,17 @@ export class MonthlyService {
     const handle = data.handle;
     const scrolls = data.scrolls;
     const orbs = data.orbs;
-    this.montlyData[handle] = scrolls;
-    this.montlyDataOrbs[handle] = orbs;
-    this.calculateTotalScrolls();
-    this.calculateTotalOrbs();
+    const arenaTokens = data.arenaTokens;
+    if (scrolls !== undefined) {
+      this.montlyData[handle] = scrolls;
+    }
+    if (orbs !== undefined) {
+      this.montlyDataOrbs[handle] = orbs;
+    }
+    if (arenaTokens !== undefined) {
+      this.montlyDataArenaTokens[handle] = arenaTokens;
+    }
+    this.calculateAll();
     this.save();
   }
 
@@ -51,17 +62,20 @@ export class MonthlyService {
     const handle = data.handle;
     delete this.montlyData[handle];
     delete this.montlyDataOrbs[handle];
-    this.calculateTotalScrolls();
-    this.calculateTotalOrbs();
+    delete this.montlyDataArenaTokens[handle];
+    this.calculateAll();
     this.save();
   }
 
   public getIfSelected(handle) {
-    return this.montlyData[handle] !== undefined || this.montlyDataOrbs[handle] !== undefined;
+    return this.montlyData[handle] !== undefined
+      || this.montlyDataOrbs[handle] !== undefined
+      || this.montlyDataArenaTokens[handle] !== undefined;
   }
 
   public calculateAll() {
     this.calculateAspenData();
+    this.calculateTotalArenaTokens();
     this.calculateTotalScrolls();
     this.calculateTotalOrbs();
   }
@@ -71,7 +85,10 @@ export class MonthlyService {
     Object.entries(this.montlyData).forEach((data: any) => {
       const handle = data[0];
       const amount = Number(data[1]);
-      this.total += amount;
+      if (amount !== undefined) {
+        this.total += amount;
+      }
+
 
       if (this.handlesWithDynamicIncome.has(handle)) {
         this.total -= amount;
@@ -81,6 +98,17 @@ export class MonthlyService {
         if (handle === 'fromAspenDungeonWhenSeniorHasScroll') {
           this.total += this.oldLadyScrolls;
         }
+      }
+    });
+  }
+
+  public calculateTotalArenaTokens() {
+    this.totalArenaTokens = 0;
+    Object.entries(this.montlyDataArenaTokens).forEach((data: any) => {
+      const handle = data[0];
+      const amount = Number(data[1]);
+      if (amount !== undefined) {
+        this.totalArenaTokens += amount;
       }
     });
   }
@@ -104,8 +132,15 @@ export class MonthlyService {
         if (handle === 'aspenDungeonOldLady-Orb') {
           this.totalOrbs += this.oldLadyOrbs;
         }
+        if (handle === 'orbsFromArenaTokensYes-Orb') {
+          this.totalOrbs += this.calcOrbsFromArenaTokens();
+        }
       }
     });
+  }
+
+  private calcOrbsFromArenaTokens() {
+    return Math.floor(this.totalArenaTokens / 200);
   }
 
   public calculateAspenData() {
@@ -147,6 +182,7 @@ export class MonthlyService {
   public save() {
     localStorage.setItem(this.saveName, JSON.stringify(this.montlyData));
     localStorage.setItem(this.saveNameOrbs, JSON.stringify(this.montlyDataOrbs));
+    localStorage.setItem(this.saveNameArenaTokens, JSON.stringify(this.montlyDataArenaTokens));
     localStorage.setItem(this.saveNameAspen, JSON.stringify(this.floorsCompleted));
   }
 
@@ -188,6 +224,13 @@ export class MonthlyService {
       this.montlyDataOrbs = {};
     }
     this.montlyDataOrbs = this.updateSave.updateOrbSaveData(this.montlyDataOrbs);
+
+
+    this.montlyDataArenaTokens = JSON.parse(localStorage.getItem(this.saveNameArenaTokens));
+    if (!this.montlyDataArenaTokens) {
+      this.montlyDataArenaTokens = {};
+    }
+    this.montlyDataArenaTokens = this.updateSave.updateArenaTokenSaveData(this.montlyDataArenaTokens);
 
     this.calculateAll();
   }

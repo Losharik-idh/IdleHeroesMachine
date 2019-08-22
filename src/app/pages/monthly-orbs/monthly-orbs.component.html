@@ -1,4 +1,5 @@
 <div class="page monthly">
-  <div class="total">Total orbs per month: {{monthlyService.totalOrbs}}</div>
+  <div class="total"><img src="./assets/orb.png" alt=""><span class="highlight">{{monthlyService.totalOrbs}} </span> per month</div>
   <app-monthly-group *ngFor="let data of monthlyData" [data]="data"></app-monthly-group>
+  <app-monthly-group *ngFor="let data of arenaTokensData" [data]="data"></app-monthly-group>
 </div>

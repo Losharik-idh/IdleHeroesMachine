@@ -3,6 +3,7 @@ export interface ScrollData {
   description: string;
   scrolls?: number;
   orbs?: number;
+  arenaTokens?: number;
   dynamicIncome?: boolean;
 }
 

@@ -1,5 +1,5 @@
 <div class="page monthly">
-  <div class="total">Total scrolls per month: {{monthlyService.total}}</div>
+  <div class="total"><img src="./assets/scroll.png" alt=""><span class="highlight">{{monthlyService.total}} </span> per month</div>
   <app-monthly-group *ngFor="let data of monthlyData" [data]="data"></app-monthly-group>
 </div>
 

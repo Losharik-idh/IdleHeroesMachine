@@ -2,16 +2,17 @@
   <div class="event-list-data">{{ eventData.event }} (<span class="highlight">{{ daysLeft}}</span> days left)</div>
   <div class="event-list-data">You gain <span class="highlight">{{ currentScollsPerDay }}</span> scrolls per day.</div>
   <div *ngIf="eventData.maxRounds > 1">
-    <div class="event-list-data">You need <span class="highlight">{{neededForNextRoundCompletion}}</span> scrolls per day to complete this round.</div>
-    <div class="event-list-data">You need <span class="highlight">{{neededPerDayForFullCompletion}}</span> scrolls per day to fully complete this event. </div>
-    <div class="event-list-data">At the current rate you can complete <span class="highlight">{{roundsCompletedAtCurrentRate}}</span> rounds</div>
+    <div class="event-list-data" *ngIf="!canFullyComplete">You need <span class="highlight">{{neededForNextRoundCompletion}}</span> scrolls per day to complete this round.</div>
+    <div class="event-list-data" *ngIf="!canFullyComplete">You need <span class="highlight">{{neededPerDayForFullCompletion}}</span> scrolls per day to fully complete this event. </div>
+    <div class="event-list-data"  *ngIf="!canFullyComplete">At the current rate you can complete <span class="highlight">{{roundsCompletedAtCurrentRate}}</span> round<span *ngIf="roundsCompletedAtCurrentRate > 1">s</span>.</div>
+    <div *ngIf="canFullyComplete">You can fully complete this event.</div>
     <div>At the current rate you will have <span class="highlight">{{ totalScrollsAtEndOfEvent }}</span> scrolls at the end of the event.</div>
   </div>
 
   <div *ngIf="eventData.maxRounds === 1">
     <div class="event-list-data">You need <span class="highlight">{{neededForNextRoundCompletion}} scrolls to complete your target.</span></div>
-    <div class="event-list-data" *ngIf="roundsCompletedAtCurrentRate === 0">At this current rate you will be unable to complete your target</div>
-    <div class="event-list-data" *ngIf="roundsCompletedAtCurrentRate !== 0">At the current rate you can complete your target</div>
+    <div class="event-list-data" *ngIf="!canFullyComplete">At this current rate you will be unable to complete your target</div>
+    <div class="event-list-data" *ngIf="canFullyComplete">At the current rate you can complete your target</div>
     <div>At the current rate you will have <span class="highlight">{{ totalScrollsAtEndOfEvent }}</span> scrolls at the end of the event.</div>
   </div>
 </div>
